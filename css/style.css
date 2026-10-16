@@ -1,0 +1,521 @@
+/* ==========================================================
+   Biblioteca Digital UniFECAF - style.css
+   Abordagem mobile-first: estilos base para celular e
+   media queries (min-width) para tablet e desktop.
+   ========================================================== */
+
+/* ---------- 1. VARIÁVEIS (paleta e tipografia) ---------- */
+:root {
+  /* Cores inspiradas na identidade visual da UniFECAF */
+  --azul: #0A2A66;          /* azul institucional */
+  --azul-escuro: #071F4D;   /* fundos escuros */
+  --azul-rodape: #04132E;   /* rodapé */
+  --verde: #2EE070;         /* destaque / ação */
+  --amarelo: #F2CE0E;       /* faixas e foco */
+  --cinza-claro: #EFEEEA;   /* fundos claros */
+  --branco: #FFFFFF;
+
+  /* Tipografia */
+  --fonte-titulo: "Poppins", "Segoe UI", Arial, sans-serif;
+  --fonte-texto: "Inter", "Segoe UI", Arial, sans-serif;
+
+  /* Espaçamento e forma */
+  --raio: 12px;
+  --espaco-secao: 3.5rem;
+}
+
+/* ---------- 2. RESET E BASE ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* evita que o menu fixo cubra o título */
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--branco);
+  background: var(--azul-escuro);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--fonte-titulo);
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: inherit;
+}
+
+/* Foco visível para navegação por teclado */
+:focus-visible {
+  outline: 3px solid var(--amarelo);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.6rem 1rem;
+  background: var(--amarelo);
+  color: var(--azul-escuro);
+  font-weight: 700;
+  border-radius: 0 0 var(--raio) var(--raio);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* ---------- 3. COMPONENTES REUTILIZÁVEIS ---------- */
+.botao {
+  display: inline-block;
+  min-height: 44px;               /* área de toque adequada */
+  padding: 0.7rem 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.botao--verde {
+  background: var(--verde);
+  color: var(--azul-escuro);
+}
+
+.botao--verde:hover {
+  background: var(--branco);
+}
+
+.botao--contorno {
+  border-color: var(--azul);
+  color: var(--azul);
+}
+
+.botao--contorno:hover {
+  background: var(--azul);
+  color: var(--branco);
+}
+
+.secao {
+  padding: var(--espaco-secao) 0;
+}
+
+.secao--azul   { background: var(--azul);        color: var(--branco); }
+.secao--escura { background: var(--azul-escuro); color: var(--branco); }
+.secao--clara  { background: var(--cinza-claro); color: var(--azul-escuro); }
+
+.secao__titulo {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- 4. CABEÇALHO E MENU ---------- */
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--azul-escuro);
+  border-bottom: 3px solid var(--verde);
+}
+
+.topo__interno {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  min-height: 4rem;
+}
+
+.topo__marca {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--fonte-titulo);
+  text-decoration: none;
+}
+
+.topo__logo {
+  width: 1.9rem;
+  height: 2.1rem;
+  background: var(--verde);
+  border: 3px solid var(--branco);
+  border-radius: 5px;
+}
+
+/* Menu mobile: checkbox escondido controla a abertura */
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu-botao {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.menu-botao span {
+  display: block;
+  height: 3px;
+  background: var(--branco);
+  border-radius: 2px;
+}
+
+.menu-toggle:focus-visible + .menu-botao {
+  outline: 3px solid var(--amarelo);
+  outline-offset: 2px;
+}
+
+.menu {
+  display: none;
+  width: 100%;
+  padding-bottom: 1rem;
+}
+
+.menu-toggle:checked ~ .menu {
+  display: block;
+}
+
+.menu a {
+  display: block;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background: var(--azul);
+}
+
+.menu a[aria-current="page"] {
+  background: var(--amarelo);
+  color: var(--azul-escuro);
+  font-weight: 700;
+}
+
+/* ---------- 5. HERO ---------- */
+.hero img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.hero__texto {
+  padding: 2rem 1.25rem;
+  background: var(--azul-escuro);
+}
+
+.hero__texto h1 {
+  font-size: 2rem;
+}
+
+/* ---------- 6. SOBRE A BIBLIOTECA ---------- */
+.sobre__grade {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.sobre__destaque {
+  margin: 0;
+}
+
+.sobre__destaque img {
+  width: 100%;
+  border-radius: var(--raio);
+}
+
+.miniaturas {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.miniaturas img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--raio);
+}
+
+/* ---------- 7. FAIXA DE DESTAQUE ---------- */
+.faixa img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.faixa__texto {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  background: var(--amarelo);
+  color: var(--azul-escuro);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* ---------- 8. NOSSOS LIVROS ---------- */
+.livros__grade {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem;
+  background: var(--cinza-claro);
+  color: var(--azul-escuro);
+  border-radius: var(--raio);
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.card__titulo {
+  font-size: 1.15rem;
+  color: var(--azul);
+}
+
+.card img {
+  width: 60%;
+  max-width: 220px;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+
+.card p {
+  flex-grow: 1;   /* empurra o botão para o fim e alinha os cards */
+  font-size: 0.95rem;
+}
+
+.card :focus-visible {
+  outline-color: var(--azul);
+}
+
+/* ---------- 9. UNIDADES ---------- */
+.unidade {
+  display: grid;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.unidade:last-child {
+  margin-bottom: 0;
+}
+
+.unidade img {
+  width: 100%;
+  border-radius: var(--raio);
+}
+
+.unidade__texto h3 {
+  font-size: 1.4rem;
+  color: var(--verde);
+}
+
+/* ---------- 10. CONTATOS ---------- */
+.contatos__grade {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+.contatos img {
+  width: 100%;
+  border-radius: var(--raio);
+}
+
+.contatos address {
+  margin-bottom: 1rem;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.contatos a {
+  color: var(--azul);
+  font-weight: 700;
+}
+
+.contatos :focus-visible {
+  outline-color: var(--azul);
+}
+
+/* ---------- 11. RODAPÉ ---------- */
+.rodape {
+  padding: 1.5rem 0;
+  background: var(--azul-rodape);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.rodape p {
+  margin: 0;
+}
+
+/* ==========================================================
+   12. RESPONSIVIDADE
+   ========================================================== */
+
+/* ----- Tablet: a partir de 768px ----- */
+@media (min-width: 768px) {
+  :root {
+    --espaco-secao: 4.5rem;
+  }
+
+  .secao__titulo {
+    font-size: 2.1rem;
+  }
+
+  .hero img {
+    height: 380px;
+  }
+
+  .miniaturas {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .faixa img {
+    height: 220px;
+  }
+
+  .livros__grade {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .unidade {
+    grid-template-columns: 2fr 3fr;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .contatos__grade {
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+  }
+}
+
+/* ----- Desktop: a partir de 1024px ----- */
+@media (min-width: 1024px) {
+  /* Menu horizontal e botão hambúrguer escondido */
+  .menu-botao {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+    width: auto;
+    padding-bottom: 0;
+  }
+
+  .menu ul {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  /* Hero com texto sobre a imagem */
+  .hero {
+    position: relative;
+  }
+
+  .hero img {
+    height: 520px;
+  }
+
+  .hero__texto {
+    position: absolute;
+    left: max(1.25rem, calc((100% - 1140px) / 2 + 1.25rem));
+    bottom: 3rem;
+    max-width: 460px;
+    padding: 2rem;
+    border-radius: var(--raio);
+    background: rgba(7, 31, 77, 0.92);
+  }
+
+  .hero__texto h1 {
+    font-size: 2.4rem;
+  }
+
+  /* Sobre: texto | imagem | texto */
+  .sobre__grade {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .faixa img {
+    height: 280px;
+  }
+
+  .livros__grade {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* ---------- 13. ACESSIBILIDADE: reduzir movimento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card,
+  .botao {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}

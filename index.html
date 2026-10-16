@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Digital UniFECAF</title>
+  <meta name="description" content="Biblioteca Digital UniFECAF: conheça o acervo, os livros em destaque, as unidades e os canais de atendimento.">
+  <link rel="icon" type="image/svg+xml" href="assets/imagens/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ========== CABEÇALHO / MENU ========== -->
+  <header class="topo">
+    <div class="container topo__interno">
+      <a class="topo__marca" href="#biblioteca" aria-label="Biblioteca Digital UniFECAF, início">
+        <span class="topo__logo" aria-hidden="true"></span>
+        <span>Biblioteca <strong>UniFECAF</strong></span>
+      </a>
+
+      <!-- Menu mobile feito só com CSS (checkbox) -->
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="menu-botao" aria-label="Abrir ou fechar o menu">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="menu" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#biblioteca" aria-current="page">Biblioteca</a></li>
+          <li><a href="#livros">Livros</a></li>
+          <li><a href="#unidades">Unidades</a></li>
+          <li><a href="#contatos">Contatos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ========== IMAGEM PRINCIPAL (HERO) ========== -->
+    <section class="hero" id="biblioteca" aria-labelledby="titulo-hero">
+      <img src="assets/imagens/hero.svg" alt="Estantes cheias de livros coloridos em uma biblioteca" width="1600" height="560">
+      <div class="hero__texto">
+        <h1 id="titulo-hero">Biblioteca Digital UniFECAF</h1>
+        <p>Livros, materiais acadêmicos e apoio ao estudo em um só lugar.</p>
+        <a class="botao botao--verde" href="#livros">Ver os livros</a>
+      </div>
+    </section>
+
+    <!-- ========== SOBRE A NOSSA BIBLIOTECA ========== -->
+    <section class="sobre secao secao--azul" aria-labelledby="titulo-sobre">
+      <div class="container">
+        <h2 id="titulo-sobre" class="secao__titulo">Sobre a nossa biblioteca</h2>
+
+        <div class="sobre__grade">
+          <p>A Biblioteca Digital UniFECAF nasceu para aproximar o estudante do conhecimento. Aqui você encontra livros de todas as áreas dos cursos, de qualquer lugar e a qualquer hora.</p>
+
+          <figure class="sobre__destaque">
+            <img src="assets/imagens/sobre-centro.svg" alt="Ilustração de um livro aberto" width="400" height="300">
+          </figure>
+
+          <p>Nosso acervo cresce a cada semana, com títulos indicados por professores, materiais de apoio e orientação para trabalhos acadêmicos. Estudar fica mais simples, rápido e acessível.</p>
+        </div>
+
+        <ul class="miniaturas">
+          <li><img src="assets/imagens/destaque-1.svg" alt="Notebook com e-book aberto" width="400" height="300" loading="lazy"></li>
+          <li><img src="assets/imagens/destaque-2.svg" alt="Livro aberto sobre a mesa de estudo" width="400" height="300" loading="lazy"></li>
+          <li><img src="assets/imagens/destaque-3.svg" alt="Balões de conversa representando o atendimento" width="400" height="300" loading="lazy"></li>
+          <li><img src="assets/imagens/destaque-4.svg" alt="Carteirinha de acesso à biblioteca" width="400" height="300" loading="lazy"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== FAIXA DE DESTAQUE (IMAGEM LARGA) ========== -->
+    <section class="faixa" aria-label="Destaque">
+      <img src="assets/imagens/banner.svg" alt="Prateleiras com livros em tons de azul, verde e amarelo" width="1600" height="360" loading="lazy">
+      <p class="faixa__texto">Novos títulos toda semana</p>
+    </section>
+
+    <!-- ========== NOSSOS LIVROS ========== -->
+    <section class="livros secao secao--azul" id="livros" aria-labelledby="titulo-livros">
+      <div class="container">
+        <h2 id="titulo-livros" class="secao__titulo">Nossos livros</h2>
+
+        <div class="livros__grade">
+
+          <article class="card">
+            <h3 class="card__titulo">Cálculo Aplicado</h3>
+            <img src="assets/imagens/livro-1.svg" alt="Capa azul do livro Cálculo Aplicado" width="400" height="500" loading="lazy">
+            <p>Limites, derivadas e integrais com exemplos de engenharia e economia.</p>
+            <a class="botao botao--contorno" href="#contatos" aria-label="Saiba mais sobre Cálculo Aplicado">Saiba mais</a>
+          </article>
+
+          <article class="card">
+            <h3 class="card__titulo">Anatomia Humana</h3>
+            <img src="assets/imagens/livro-2.svg" alt="Capa verde do livro Anatomia Humana" width="400" height="500" loading="lazy">
+            <p>Atlas ilustrado dos sistemas do corpo, para estudantes da área da saúde.</p>
+            <a class="botao botao--contorno" href="#contatos" aria-label="Saiba mais sobre Anatomia Humana">Saiba mais</a>
+          </article>
+
+          <article class="card">
+            <h3 class="card__titulo">Gestão de Pessoas</h3>
+            <img src="assets/imagens/livro-3.svg" alt="Capa amarela do livro Gestão de Pessoas" width="400" height="500" loading="lazy">
+            <p>Liderança, cultura e desenvolvimento de equipes nas organizações.</p>
+            <a class="botao botao--contorno" href="#contatos" aria-label="Saiba mais sobre Gestão de Pessoas">Saiba mais</a>
+          </article>
+
+          <article class="card">
+            <h3 class="card__titulo">Algoritmos e Lógica</h3>
+            <img src="assets/imagens/livro-4.svg" alt="Capa azul-escura do livro Algoritmos e Lógica" width="400" height="500" loading="lazy">
+            <p>Primeiros passos em programação, com exercícios resolvidos.</p>
+            <a class="botao botao--contorno" href="#contatos" aria-label="Saiba mais sobre Algoritmos e Lógica">Saiba mais</a>
+          </article>
+
+          <article class="card">
+            <h3 class="card__titulo">Direito Constitucional</h3>
+            <img src="assets/imagens/livro-5.svg" alt="Capa clara do livro Direito Constitucional" width="400" height="500" loading="lazy">
+            <p>Princípios, direitos fundamentais e organização do Estado.</p>
+            <a class="botao botao--contorno" href="#contatos" aria-label="Saiba mais sobre Direito Constitucional">Saiba mais</a>
+          </article>
+
+          <article class="card">
+            <h3 class="card__titulo">Psicologia da Educação</h3>
+            <img src="assets/imagens/livro-6.svg" alt="Capa azul do livro Psicologia da Educação" width="400" height="500" loading="lazy">
+            <p>Como as pessoas aprendem e como ensinar de forma mais eficaz.</p>
+            <a class="botao botao--contorno" href="#contatos" aria-label="Saiba mais sobre Psicologia da Educação">Saiba mais</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== AS UNIDADES ========== -->
+    <section class="unidades secao secao--escura" id="unidades" aria-labelledby="titulo-unidades">
+      <div class="container">
+        <h2 id="titulo-unidades" class="secao__titulo">As unidades</h2>
+
+        <article class="unidade">
+          <img src="assets/imagens/unidade-1.svg" alt="Fachada da Unidade 1, prédio azul de quatro andares" width="640" height="420" loading="lazy">
+          <div class="unidade__texto">
+            <h3>Unidade 1</h3>
+            <p>Espaço de estudo com mesas individuais, computadores e acervo físico de consulta. Atendimento de segunda a sexta, das 8h às 22h.</p>
+          </div>
+        </article>
+
+        <article class="unidade">
+          <img src="assets/imagens/unidade-2.svg" alt="Fachada da Unidade 2, prédio azul de três andares" width="640" height="420" loading="lazy">
+          <div class="unidade__texto">
+            <h3>Unidade 2</h3>
+            <p>Salas para estudo em grupo e cabines de leitura silenciosa. Atendimento de segunda a sexta, das 8h às 21h.</p>
+          </div>
+        </article>
+
+        <article class="unidade">
+          <img src="assets/imagens/unidade-3.svg" alt="Fachada da Unidade 3, prédio azul de cinco andares" width="640" height="420" loading="lazy">
+          <div class="unidade__texto">
+            <h3>Unidade 3</h3>
+            <p>Laboratório de informática com acesso à biblioteca digital e apoio para normas acadêmicas. Atendimento de segunda a sábado, das 8h às 18h.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== CONTATOS ========== -->
+    <section class="contatos secao secao--clara" id="contatos" aria-labelledby="titulo-contatos">
+      <div class="container contatos__grade">
+        <div class="contatos__texto">
+          <h2 id="titulo-contatos" class="secao__titulo">Contatos</h2>
+          <p>Dúvidas sobre o acervo, empréstimos ou acesso à plataforma? Nossa equipe de bibliotecários responde em até um dia útil.</p>
+          <address>
+            E-mail: <a href="mailto:biblioteca@exemplo.edu.br">biblioteca@exemplo.edu.br</a><br>
+            Telefone: <a href="tel:+551100000000">(11) 0000-0000</a>
+          </address>
+          <p>Prefere falar pessoalmente? Visite qualquer uma das unidades no horário de atendimento.</p>
+        </div>
+        <img src="assets/imagens/contato.svg" alt="Envelope com símbolo de e-mail, representando o contato com a biblioteca" width="600" height="420" loading="lazy">
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== RODAPÉ ========== -->
+  <footer class="rodape">
+    <div class="container">
+      <p>&copy; 2026 Biblioteca Digital UniFECAF. Projeto acadêmico da disciplina Design Web.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
